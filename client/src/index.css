@@ -1,0 +1,118 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: 'Outfit', sans-serif;
+  
+  --color-rps-bg-start: #8CC461;
+  --color-rps-bg-end: #6AB04A;
+  
+  --color-rps-rock: #0074B6;
+  --color-rps-paper: #BD00FF;
+  --color-rps-scissors: #FFA943;
+}
+
+:root {
+  --background: 101 44% 53%; /* Approximate mid-green */
+  --foreground: 0 0% 100%;
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased text-white min-h-screen;
+    background: linear-gradient(135deg, var(--color-rps-bg-start) 0%, var(--color-rps-bg-end) 100%);
+    background-attachment: fixed;
+  }
+}
+
+/* Custom Win Glow Animation */
+@keyframes winnerGlow {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+    box-shadow: 0 0 0 0 rgba(46, 213, 115, 0.4);
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+    box-shadow: 0 0 40px 20px rgba(46, 213, 115, 0.1);
+  }
+}
+
+.winner-ring {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: rgba(46, 213, 115, 0.3);
+  z-index: -1;
+  animation: winnerGlow 1.5s infinite ease-out;
+}
+
+.winner-ring:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.winner-ring:nth-child(3) {
+  animation-delay: 1s;
+}
+
+/* Base styles for the choice circles */
+.choice-circle {
+  @apply relative rounded-full bg-white flex items-center justify-center transition-transform duration-200 ease-out shadow-[0_6px_12px_rgba(0,0,0,0.2)];
+  width: 140px;
+  height: 140px;
+  cursor: pointer;
+}
+
+.choice-circle:hover {
+  transform: scale(1.05);
+}
+
+/* Thick borders for choices */
+.choice-rock {
+  border: 16px solid var(--color-rps-rock);
+}
+.choice-paper {
+  border: 16px solid var(--color-rps-paper);
+}
+.choice-scissors {
+  border: 16px solid var(--color-rps-scissors);
+}
+
+.triangle-lines {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 250px;
+  z-index: 0;
+}
+
+.triangle-line {
+  position: absolute;
+  background-color: rgba(0,0,0,0.2);
+  height: 15px;
+}
+
+.line-1 {
+  width: 200px;
+  top: 30px;
+  left: 25px;
+}
+
+.line-2 {
+  width: 200px;
+  top: 120px;
+  left: -20px;
+  transform: rotate(60deg);
+}
+
+.line-3 {
+  width: 200px;
+  top: 120px;
+  right: -20px;
+  transform: rotate(-60deg);
+}

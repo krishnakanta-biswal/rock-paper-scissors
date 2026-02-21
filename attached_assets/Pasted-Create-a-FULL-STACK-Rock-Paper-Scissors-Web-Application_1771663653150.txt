@@ -1,0 +1,95 @@
+Create a FULL STACK Rock Paper Scissors Web Application that EXACTLY matches a Figma-style design similar to the following description.
+The UI must be pixel-close to a green-themed Rock Paper Scissors game.
+🎨 DESIGN SPECIFICATIONS
+Background:
+Full screen gradient background: linear-gradient(135deg, #8CC461 0%, #6AB04A 100%);
+Background should cover entire viewport height.
+Center all content vertically and horizontally.
+Typography:
+Title font: bold, uppercase
+White color
+Large font size (32px–40px)
+Letter spacing slightly increased.
+Score Box:
+Positioned top center.
+White background.
+Border radius: 12px.
+Padding: 15px 30px.
+Display two sections: USER SCORE | PC SCORE
+Each score in large bold font.
+Score numbers in black.
+Labels small uppercase grey.
+Game Choice Layout:
+3 circular buttons arranged in triangle shape: Rock (left top) Paper (right top) Scissors (bottom center)
+Each circle: width: 140px height: 140px border-radius: 50% background: white center icon inside thick colored border: Rock → #0074B6 (blue) Paper → #BD00FF (purple) Scissors → #FFA943 (orange)
+Add drop shadow: box-shadow: 0 6px 12px rgba(0,0,0,0.2)
+Hover:
+Slight scale transform: transform: scale(1.05) transition: 0.2s ease
+🎬 RESULT SCREEN DESIGN
+After selection:
+Hide triangle layout.
+Show two large circles side by side:
+Left:
+Text above: "YOU PICKED" Right:
+Text above: "PC PICKED"
+Center result text:
+Big bold white text: "YOU WIN AGAINST PC" or "YOU LOST AGAINST PC" or "TIE UP"
+Below result:
+Play Again button: white background black text rounded corners padding 10px 25px
+🟢 WIN ANIMATION (IMPORTANT)
+When user wins:
+Add glowing ring animation around winner circle.
+Animation must include:
+3 expanding green rings.
+Rings fade out as they expand.
+Use keyframes animation.
+Duration: 1.5s infinite loop.
+Example logic:
+Create 3 pseudo-elements around circle.
+Use scale transform from 1 → 1.6
+Opacity 0.6 → 0
+Green color: rgba(0, 255, 0, 0.5)
+Glow effect:
+Add outer box-shadow: 0 0 30px rgba(0,255,0,0.6)
+🏆 HURRAY PAGE
+Background same green gradient.
+Center content vertically.
+Show:
+Trophy icon (large size 120px)
+Text: HURRAY!! YOU WON THE GAME
+Add small white stars around trophy.
+Add “PLAY AGAIN” button.
+Button styling:
+White background
+Black text
+Rounded 8px
+📦 FUNCTIONAL REQUIREMENTS
+Score increments correctly.
+Score persists using localStorage.
+Score never resets unless manually cleared.
+Clicking NEXT navigates to Hurray page.
+Clicking Play Again returns to main game.
+Rules button bottom right corner.
+Rules modal with dark overlay.
+Close icon on modal.
+🔐 BACKEND REQUIREMENTS
+Node.js + Express
+bcrypt password hashing
+JWT authentication
+Protected routes
+Environment variables using dotenv
+Proper error handling middleware
+Response format: { success: boolean, message: string, data?: object }
+Validation for: email format required fields password minimum 6 characters
+📁 STRUCTURE
+client/ css/ base.css game.css modal.css hurray.css js/ game.js auth.js ui.js pages/ login.html signup.html game.html hurray.html
+server/ controllers/ models/ routes/ middleware/
+Do NOT use:
+Tailwind
+Bootstrap
+Any CSS framework
+Use only:
+Vanilla HTML
+Vanilla CSS
+Vanilla JS
+Make it production ready. Clean code. Proper naming conventions. Readable structure.
